@@ -1,2 +1,2 @@
 cd IMa
-mpicxx -o IMa2p *.cpp -DMPI_ENABLED -DXML_ENABLED
+mpicxx -o IMa2 *.cpp -DMPI_ENABLED -DXML_ENABLED

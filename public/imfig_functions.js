@@ -134,7 +134,7 @@ function submitFigRequest(cp) {
             i.attr("src",cp.prefix+'.jpg');
             i.appendTo($('#main-div'));
         } else {
-            addError('An error has occured, the IMfig run was unsuccessful',$('#submit-button'));
+            addError('An error has occured: '+JSON.stringify(msg.msg),$('#submit-button'));
         }
                      
     });

@@ -331,19 +331,28 @@ app.post('/', function (req,res) {
     } else if (p === 'imfig') {
         var s_args = parseFigArgs(JSON.parse(req.body.args));
         sendf = 1;
+        console.log(s_args);
         var s = spawn(s_args[0],s_args[1]);
+        var response_sent = 0;
         s.on('close',function () {
             var j = {
                 fail: 0
             };
-            res.send(j);
+            if(response_sent === 0) {
+                response_sent = 1;
+                res.send(j);
+            }
         });
         s.on('error',function (err) {
+            console.log(JSON.stringify(err));
             var j = {
                 fail: 1,
                 msg: err
             };
-            res.send(j);
+            if(response_sent === 0) {
+                response_sent = 1;
+                res.send(j);
+            }
         });     
     } else if (p === 'delburn') {
         var id = req.body.id;
