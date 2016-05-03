@@ -1,4 +1,7 @@
 /*global alert, $, jQuery, FileReader*/
+
+/*IMgui 2016- Jared Knoblauch, Arun Sethuraman, and Jody Hey*/
+
 "use strict";
 
 
