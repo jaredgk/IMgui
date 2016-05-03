@@ -1,5 +1,7 @@
 /*global alert, $, jQuery, FileReader*/
 
+/*IMgui 2016- Jared Knoblauch, Arun Sethuraman, and Jody Hey*/
+
 var xmlDoc; //XML file contents
 var xmlFile; //"histogram" or "main:
 var xmlArray = []; //Stores parsed file contents, indexes correspond to menu option number
