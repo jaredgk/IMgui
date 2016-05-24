@@ -1,5 +1,7 @@
 /*global $, jQuery*/
 
+/*IMgui 2016- Jared Knoblauch, Arun Sethuraman, and Jody Hey*/
+
 var express = require('express');
 var app = express();
 var path = require('path');
