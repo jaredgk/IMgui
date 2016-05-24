@@ -112,9 +112,11 @@ function createCmdLine() {
         }
     }
     if($('#a-check').is(':checked')) { args.push('-a'); }
-    if($('#c-check').is(':checked')) { args.push('-c'); }
+    if($('#e-check').is(':checked')) { args.push('-e'); }
     if($('#d-check').is(':checked')) { args.push('-d'); }
     if($('#s-check').is(':checked')) { args.push('-s'); }
+    if($('#u-check').is(':checked')) { args.push('-u'); }
+    if($('#v-check').is(':checked')) { args.push('-v'); }
     if(fl === 0) { ro.args = args; }
     return ro;
 }

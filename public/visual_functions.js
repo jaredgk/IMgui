@@ -14,6 +14,7 @@ function createChart(a,b) {
         var cv = ((i)/10*a[a.length-1]+((10-i)/10)*a[1]).toFixed(2);
         ticks.push(cv);
     }
+    console.log(a[0]);
     var chart = c3.generate({
         data: {
             x: 'x',
@@ -29,6 +30,12 @@ function createChart(a,b) {
             x: {
                 tick: {
                     values: ticks
+                }
+            }, 
+            y: {
+                label: {
+                    text: 'Posterior Probability',
+                    position: 'outer-middle'
                 }
             }
         },
@@ -247,11 +254,12 @@ $('#selectid').change(function () {
 function createCols(headrows) {
     var ii = $('#selectid option:selected').val();
     var jj = $('#colid option:selected').val();
+    var varname = $('#colid option:selected').text();
     var a = [];
     var b = [];
     if(headrows !== 0) {
         a.push('x');
-        b.push('data');
+        b.push(varname);
     }
     var x = xmlArray[ii].data;
     for(var i = 1; i < 2001; i+=2) {
