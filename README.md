@@ -28,11 +28,14 @@ sudo apt-get install nodejs
   ```
   npm install
   ```
-3. To start the node.js application, run the following command:
+##Run
+1. To start the node.js application, run the following command:
+  
   ```
   node inde.js
   ```
-4. Open a web browser window, and type the following path in the address bar:
+2. Open a web browser window, and type the following path in the address bar:
+  
   ```
   localhost:3000
   ```
