@@ -24,6 +24,7 @@ sudo apt-get install nodejs
   cd /path/to/target/dir/
   ```
 2. In a terminal, run the following command:
+  
   ```
   npm install
   ```
