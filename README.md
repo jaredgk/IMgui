@@ -33,7 +33,7 @@ sudo apt-get install nodejs
 1. To start the node.js application, run the following command:
   
   ```
-  node inde.js
+  node index.js
   ```
 2. Open a web browser window, and type the following path in the address bar:
   
