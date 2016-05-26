@@ -51,6 +51,18 @@ function getName(jobname) {
     return jobname;
 }
 
+function addSlash(pref) {
+    var slash = '/';
+    var ret = pref;
+    if(os.platform() === 'win32') {
+        slash = '\\';
+    }
+    if(pref[pref.length-1] !== slash[0]) {
+        ret += slash;
+    }
+    return ret;
+}
+
 //Return args for spawn command, contingent on operating system
 function parseArgs(ex,num_process) {
     var exl = ex.trim().split(' ');
@@ -70,6 +82,11 @@ function parseArgs(ex,num_process) {
         }
     }
     for(var i = 0; i < exl.length; i++) {
+        /*var t = exl[i];
+        if(t.substring(0,2) === '-o') {
+            t = addSlash(exl[i]);
+        }
+        argl.push(t);*/
         argl.push(exl[i]);
     }
     o.push(argl);
