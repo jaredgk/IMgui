@@ -171,6 +171,10 @@ function startJob(job) {
     //Handles signals for beginning/end of user-controlled burn/run modes
     e.stderr.on('data',function(data) {
         console.log(data);
+        job.pipeout += data;
+        if(id == jobIdx) {
+            io.emit('process_data',data);
+        }
     });
     //Sends signal to browser to disable/enable appropriate buttons
     e.on("close",function(code) {
