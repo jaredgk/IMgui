@@ -234,8 +234,14 @@ function submitJobRequest() {
     var s = printParams();
     //var o = $('#outtag').val();
     var o = getName('#outtag');
-    var burn = (blstat('#burn') === 2) ? 1 : 0;
-    var run = (blstat('#run-time') === 2) ? 1 : 0;
+    var burn = 0;
+    if(blstat('#burn') === 2 && document.getElementById('imburn-check').checked) {
+        burn = 1;
+    }
+    var run = 0;
+    if(blstat('#run-time') === 2 && document.getElementById('imrun-check').checked) {
+        run = 1;
+    }
     var name = getJobName();
     var num_process = $('#num-process').val().length !== 0 ? $('#num-process').val() : 1;
     $.post('/', {

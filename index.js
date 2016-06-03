@@ -85,7 +85,11 @@ function parseFigArgs(args) {
     //n.push(IMFIG_PATH);
     console.log(args);
     for(var i = 0; i < args.length; i++) {
-        n.push(args[i]);
+        var t = args[i];
+        if(args[i].substr(0,2) === '-o' && os.platform() === 'win32') {
+            t = args[i].replace('/','\\');
+        }
+        n.push(t);
     }
     o.push(n);
     return o;
@@ -334,13 +338,20 @@ app.post('/', function (req,res) {
         sendf = 1;
     } else if (p === 'imfig') {
         var s_args = parseFigArgs(JSON.parse(req.body.args));
+        var pref = req.body.prefix;
+        pref += '.eps';
+        console.log(pref);
+        console.log(__dirname);
+        var fullpath = path.join(__dirname,'public',pref);
+        console.log(fullpath);
         sendf = 1;
         console.log(s_args);
         var s = spawn(s_args[0],s_args[1]);
         var response_sent = 0;
         s.on('close',function () {
             var j = {
-                fail: 0
+                fail: 0,
+                path: fullpath
             };
             if(response_sent === 0) {
                 response_sent = 1;

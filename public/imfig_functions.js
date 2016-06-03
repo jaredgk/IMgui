@@ -132,13 +132,16 @@ function submitFigRequest(cp) {
         prefix: cp.prefix
     }, function (msg) {
         if(msg.fail === 0) {
-            $('#server_image').remove();
-            var p = $('<p class="small-p">To download, right click on image and select "Save Image As..."</p>');
-            p.appendTo($('#main-div'));
-            var i = $('<img>');
-            i.attr('id','server_image');
-            i.attr("src",cp.prefix.replace(/eps/g,'jpg')+'.jpg');
-            i.appendTo($('#main-div'));
+            //$('#server_image').remove();
+            //var p = $('<p class="small-p">To download, right click on image and select "Save Image As..."</p>');
+            //p.appendTo($('#main-div'));
+            //var i = $('<img>');
+            //i.attr('id','server_image');
+            $('#image-div').show();
+            var epstext = 'The .eps file for this figure is located at '+msg.path;
+            $('#eps-path').text(epstext);
+            $('#server_image').attr("src",cp.prefix.replace(/eps/g,'jpg')+'.jpg');
+            //i.appendTo($('#main-div'));
         } else {
             addError('An error has occured: '+JSON.stringify(msg.msg),$('#submit-button'));
         }
@@ -147,12 +150,6 @@ function submitFigRequest(cp) {
     
     
 }
-
-$('#testbutton').click(function () {
-    $.post('/', {
-        post: 'getpic'
-    });
-});
 
 $('#submit-button').click(function () {
     var cmdline_params = createCmdLine();
