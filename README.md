@@ -1,17 +1,47 @@
 # IMgui
-Front end, browser-based GUI for the IMa suite of evolutionary biology analysis tools. This repository contains code for linux/mac versions (mac version is currently untested but will be shortly)
+Front end, browser-based GUI for the IMa suite of evolutionary biology analysis tools. This repository contains code for linux/mac/windows versions (mac version is currently untested but will be shortly)
 
 ##Required Software
 * node.js
 * A web browser
 
 To install node.js, use one of the following methods:
-* Run the following command in a terminal window:
+####Linux (apt-get)
+Run the following command in a terminal:
 ```
 sudo apt-get install nodejs
 ```
-* Run a different command line installation option from the [nodejs webpage](https://nodejs.org/en/download/package-manager/)
-* Download installer for your OS from [nodejs downloads](https://nodejs.org/en/download/)
+To test the installation, run:
+```
+node -v
+```
+If this returns "command not found", run the command:
+```
+nodejs -v
+```
+If this runs, a symbolic link must be created to run node.js properly. Enter the following command:
+```
+sudo ln -s /usr/bin/nodejs /usr/bin/node
+```
+Otherwise, try using apt-get to download a different version of node.js:
+```
+sudo apt-get install nodejs-legacy
+```
+####Linux (yum)
+Run the following command in a terminal:
+```
+sudo yum install nodejs npm
+```
+You can test for a successful install by running "node -v" as shown above.
+#### Mac
+The node.js installer can downloaded [here](https://nodejs.org/en/download/)
+Alternatively, it can be installed using brew:
+```
+brew install node
+```
+#### Windows
+The windows installer can be found [here](https://nodejs.org/en/download/)
+
 
 ##Installation
 1. Clone via commandline or download and unzip archive from this page. 
