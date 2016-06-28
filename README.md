@@ -33,6 +33,8 @@ Run the following command in a terminal:
 sudo yum install nodejs npm
 ```
 You can test for a successful install by running "node -v" as shown above.
+
+Additional linux installation methods can be found [here](https://nodejs.org/en/download/package-manager/)
 #### Mac
 The node.js installer can downloaded [here](https://nodejs.org/en/download/)
 Alternatively, it can be installed using brew:
