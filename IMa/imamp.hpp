@@ -141,7 +141,7 @@ is not microsoft, then this file is not included, and the regular direct is used
 #define STARTMIGMAX 1000        /* max number per edge when trees are first built */
 #define ADDMIGMAX 1000          /* max of number of migrations that can be added by poisson generator */
 #define ABSMIGMAX  5000         /* absolute maximum # of migration events allowed  -  is 5000 too large? */
-#define PARAMSTRLEN  12         /* length of string of parameter name */
+#define PARAMSTRLEN  14         /* length of string of parameter name */
 #define PARAMSTRLENSHORT  7     /* length of string of parameter name */
 #define UPDATELABELLEN 18       /* length of string for an update name */
 #define MPRIORMIN 0.000001      /* small value for setting upper bound on migration to (near) zero */

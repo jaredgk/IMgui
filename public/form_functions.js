@@ -199,11 +199,14 @@ function changeJob() {
 }
 
 //Code for testing, 'setvals' button is not currently in HTML
-$('#setvals').click(function () {
-    $('#infile').val('/home/jared/Downloads/Sim_1');
-    $('#outtag').val('/home/jared/t');
-    $('#burn').val(100);
+$('#demo-input').click(function () {
+    $('#working-dir').val('sample/');
+    $('#infile').val('ima2_testinput.u');
+    $('#outtag').val('testjob.out');
+    $('#nametag').val('Test Job');
+    $('#burn').val(1000);
     $('#run-time').val(1000);
+    $('#t').slideDown();
     $('#mps').val(3);
     $('#mpv').val(1);
     $('#mtps').val(2);
@@ -497,6 +500,10 @@ socket.on('run-signal', function () {
 
 $(document).ready(function () {
     
+    //Adding until parallel windows version is distributed
+    if(navigator.appVersion.indexOf("Win") != -1) {
+        $('#num-process').attr('disabled','disabled');
+    }
     $('#jobselect').change(function () {
         changeJob();
     });

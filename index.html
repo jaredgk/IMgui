@@ -3,27 +3,32 @@
     <head>
         <meta charset="utf-8">
         <title>IMgui</title>
-        <link rel="stylesheet" type="text/css" href="main.css">
         <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
     </head>
     <script src="/socket.io/socket.io.js"></script>
     <script>
         var socket = io();
     </script>
-    <body>
-        <header>Form for IMa command line</header>
-        <nav>
-            <a href="./">Job Manager</a>
-            <br>
-            <a href="analysis.html">Analyze Output Files</a>
-            <br>
-            <a href="imfig.html">IMfig</a>
-            <br>
-            <a target="_blank" href="help.html">Help</a>
+    
+    <header>
+
+        <h2 style="text-align:center">Form for IMa command line</h2>
+        <nav class="navbar navbar-inverse">
+        
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="./">Job Manager</a></li>
+                <li><a href="analysis.html">Analyze Output Files</a></li>
+                <li><a href="imfig.html">IMfig</a></li>
+                <li><a target="_blank" href="help.html">Help</a></li>
+            </ul>
         </nav>
+    </header>
+    <body>
         <section>
-            <h2></h2>
             <div class="container">
+                <div class="col-xs-12">
+                <button type="button" class="btn btn-default" id="demo-input">Demo Job</button>
                 <form role="form" id="form1">
                     <div id="mode-select">
                         <input type="radio" name="run-mode" value="m" class="radio-label modeswitch" id="mcmc" checked><label for="mcmc" class="radio-label">MCMC Mode</label>
@@ -190,15 +195,9 @@
                         <textarea id="stdoutta" class="stdouttextarea col-xs-12"></textarea>
                     </div>
                 </form>
+                </div>
             </div>
         </section>
-        <footer>
-            <hr style="border-top: 1px solid #000">
-            <p class="smaller-p">IMgui: A browser-based GUI for Isolation with Migration Analyses</p>
-            <p class="smaller-p">Version 0.0.1</p>
-            <p class="smaller-p">Copyright Jared Knoblauch, Arun Sethuraman, and Jody Hey (2016)</p>
-            <p class="smaller-p">To report issues, contact Jared Knoblauch at <a href="mailto:jaredknoblauch@gmail.com">jaredknoblauch@gmail.com</a></p>
-        </footer>
 <!-- jQuery library -->
         <script src="jquery.min.js"></script>
 
@@ -214,9 +213,20 @@
             console.log('refresh should write this');
             getActiveLabels();
             var sep = '/';
-            if(navigator.appVersion.indexOf("Win") != -1) { sep = '\\'; }
+            if(navigator.appVersion.indexOf("Win") != -1) { 
+                sep = '\\';
+            }
             console.log(sep);
         </script>
         
     </body>
+    <footer>
+            <hr style="border-top: 1px solid #000">
+        <img src="ccgg_tp.png" style="float:left">
+        <img src="color_pan.jpg" style="float:right">
+            <p class="smaller-p footer-text">IMgui: A browser-based GUI for Isolation with Migration Analyses</p>
+            <p class="smaller-p footer-text">Version 0.0.1</p>
+            <p class="smaller-p footer-text">Copyright Jared Knoblauch, Arun Sethuraman, and Jody Hey (2016)</p>
+            <p class="smaller-p footer-text">To report issues, contact Jared Knoblauch at <a href="mailto:jaredknoblauch@gmail.com">jaredknoblauch@gmail.com</a></p>
+        </footer>
 </html>

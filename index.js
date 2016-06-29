@@ -108,6 +108,9 @@ function parseFigArgs(args) {
     return spawn_args;
 }
 
+/*Takes req object and creates spawn args based on system to validate file
+  paths. Replaces directory separators on windows. 
+*/
 function getValidateArgs(args) {
     var o = [];
     var l = [];
