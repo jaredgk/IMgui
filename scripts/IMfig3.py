@@ -1642,7 +1642,7 @@ def setdefaults():
     dosquare = False
     eventimes = False
     imfilename = "im_eps.txt"
-    outputfilename = "im_eps_file.eps"
+    outputfilename = "im_eps_file"
     globalscale = 1
     font = "Arial"
     bifont = "Arial-BoldItalic"
@@ -1754,7 +1754,8 @@ if localxscale > 0 :
 
 
 ##//////////////// write the output file ///////////////////////////
-epsf = file(outputfilename,"w")
+epsname = outputfilename+'.eps'
+epsf = file(epsname,"w")
 w("%!PS-Adobe-3.0 EPSF-3.0")
 w("%%legal size in landscape is 792x612 set bounding box with 0.5inch margins")
 w("%%the lower corner is at 36 36 x dim is 720 wide  y dim is 540 hi")
@@ -1779,10 +1780,13 @@ print "migration arrows"
 print_mcurves(slist,numpops, popbox, plist, simplecolor)
 epsf.close()
 from PIL import Image
-sys.path.insert(1,'/usr/lib/python2.7/dist-packages/PIL')
-tempf = Image.open(outputfilename)
-jpgn = outputfilename.replace('eps','jpg')
-tempf.save(jpgn)
+tempf = Image.open(epsname)
+jpgname = outputfilename+'.jpg'
+jpgbigname = outputfilename+'_hires.jpg'
+tempf.save(jpgname)
+bigf = Image.open(epsname)
+bigf.load(scale=3)
+bigf.save(jpgbigname)
 
 print "plot completed"
 
